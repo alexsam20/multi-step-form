@@ -1,5 +1,6 @@
+/* 00. */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap");
-
+/* 01. */
 * {
     font-family: "Outfit", sans-serif;
     padding: 0;
@@ -7,7 +8,7 @@
     box-sizing: border-box;
 
 }
-
+/* 02. */
 :root {
     --main-color: #c41e68;
     --dark-color: #a71555;
@@ -16,7 +17,7 @@
     --steps: 4;
     --progress-width: calc((var(--steps) - 1) / var(--steps) * 100%);
 }
-
+/* 03. */
 body {
     height: 100vh;
     display: grid;
@@ -24,13 +25,44 @@ body {
     background-color: lavender;
     color: #333;
 }
-
+/* 1a. */
 h1 {
     text-align: center;
     margin-bottom: 16px;
 }
-
-/* form style */
+/* 11. */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 16px;
+    padding: 8px 16px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+/* 12. */
+button:active, button:hover {
+    border-color: var(--dark-color);
+}
+/* 13. */
+button:disabled {
+    opacity: 0.8;
+}
+/* 14. */
+button:focus {
+    outline-color: #333;
+}
+/* 15. */
+button[type="submit"] {
+    background-color: #333;
+}
+/* 16. */
+button[type="submit"]:hover,
+button[type="submit"]:active {
+    background-color: #444;
+}
+/* 1. form style */
 .form-wizard {
     background-color: #fff;
     padding: 32px;
@@ -38,11 +70,11 @@ h1 {
     width: min(500px, 80%);
     box-shadow: 0 4px 16px rgba(167, 21, 84, 0.1);
 }
-
+/* 5. */
 .progress-container {
     position: relative;
 }
-
+/* 6 */
 .progress-container::before {
     content: '';
     height: 4px;
@@ -53,7 +85,7 @@ h1 {
     left: 50%;
     translate: -50% -50%;
 }
-
+/* 10. */
 .progress-container .progress {
     height: 4px;
     width: var(--progress-width);
@@ -67,7 +99,7 @@ h1 {
     transform-origin: left;
     transition: 0.3s;
 }
-
+/* 2. */
 .progress-container ol {
     list-style-type: none;
     display: flex;
@@ -77,9 +109,9 @@ h1 {
     position: relative;
     z-index: 3;
 }
-
+/* 4. */
 .progress-container li {
-    /* border: 1px solid #000; */
+    /* 1 border: 1px solid #000; */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -88,7 +120,7 @@ h1 {
     color: var(--step-color);
     transition: 0.3s linear 0.3s;
 }
-
+/* 3. */
 .progress-container li::before {
     counter-increment: step-number;
     content: counter(step-number);
@@ -102,19 +134,50 @@ h1 {
     color: #fff;
     transition: 0.3s linear 0.3s;
 }
-
+/* 7. */
 .progress-container li:where(.done, .current) {
     color: cadetblue;
     font-weight: 700;
 }
-
+/* 8. */
 .progress-container li.done::before {
     background-color: var(--main-color);
 }
-
+/* 9. */
 .progress-container li.current::before {
     background-color: var(--main-color);
     box-shadow: 0 0 0 3px rgba(167, 21, 84, 0.25);
+}
+/* 19 */
+.steps-container {
+    display: flex;
+    overflow: hidden;
+}
+/* 20. */
+.step {
+    flex: 1 0 100%;
+    padding: 24px 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    height: fit-content;
+}
+/* 21. */
+.step.current {
+    opacity: 1;
+}
+/* 17. */
+/* Для блокока элементов управления (.controls) я буду использовать flexbox, для выравнивания кнопок */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+    padding-inline: 8px;
+}
+/* 18 */
+.controls button {
+    flex: 1;
 }
 
 
